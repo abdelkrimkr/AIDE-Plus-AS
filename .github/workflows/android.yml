@@ -2,8 +2,7 @@ name: Build & Publish Release APK
 
 on:
   push:
-    tags:
-      - v*
+    branches: [ "master" ]
   pull_request:
     # 分支名称
     branches: [ "master" ]
@@ -12,11 +11,6 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-
-    strategy:
-      # 矩阵功能，为每个包构建
-      matrix:
-        flavor: [ default, termux ]
 
     steps:
     - uses: actions/checkout@v4
